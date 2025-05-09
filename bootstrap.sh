@@ -1,6 +1,39 @@
 #!/bin/bash
 
 set -e
+
+# Check and install Xcode Command Line Tools if needed  
+echo "🔍 Checking for Xcode Command Line Tools..."  
+if ! xcode-select -p &>/dev/null; then  
+  echo "📥 Installing Xcode Command Line Tools..."  
+  xcode-select --install  
+    
+  # Wait for the installation to complete  
+  echo "⏳ Waiting for Xcode Command Line Tools installation to complete..."  
+  echo "⚠️ Please complete the installation prompt that appears."  
+  echo "Press any key when the installation has completed..."  
+  read -n 1  
+else  
+  echo "✅ Xcode Command Line Tools already installed"  
+fi  
+  
+# Check and install Homebrew if needed  
+echo "🔍 Checking for Homebrew..."  
+if ! command -v brew &>/dev/null; then  
+  echo "📥 Installing Homebrew..."  
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
+    
+  # Add Homebrew to PATH for the current session  
+  if [[ $(uname -m) == "arm64" ]]; then  
+    # For Apple Silicon Macs  
+    eval "$(/opt/homebrew/bin/brew shellenv)"  
+  else  
+    # For Intel Macs  
+    eval "$(/usr/local/bin/brew shellenv)"  
+  fi  
+else  
+  echo "✅ Homebrew already installed"  
+fi  
     
 NVM_DIR="$HOME/.nvm"
 REPO_URL="https://github.com/Varadarajan-M/mac-dev-starter-kit.git"
