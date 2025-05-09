@@ -3,7 +3,7 @@
         "value": "java",
         "name": "Java",
         "description": "Java is a popular, versatile programming language known for its 'write once, run anywhere' capability.",
-        "checkCmd": "java -version",
+        "checkCmd": "javac -version",
         "installCmd": "brew install openjdk@17"
     },
     {
