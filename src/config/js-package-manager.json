@@ -1,0 +1,16 @@
+[
+    {
+        "name": "yarn",
+        "value": "yarn",
+        "checkCmd": "yarn --version",
+        "installCmd": "brew install yarn",
+        "description": "🔍 Yarn is a fast, reliable, and secure dependency manager for JavaScript and TypeScript."
+    },
+    {
+        "name": "pnpm",
+        "value": "pnpm",
+        "checkCmd": "pnpm --version",
+        "installCmd": "brew install pnpm",
+        "description": "🔍 Pnpm is a fast, disk space efficient package manager for JavaScript and TypeScript."
+    }
+] 

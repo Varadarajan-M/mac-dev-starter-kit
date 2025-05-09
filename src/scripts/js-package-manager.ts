@@ -1,26 +1,10 @@
 import { BackgroundTask } from '../types';
-import { execAsync } from '../utils';
 import Logger from '../utils/logger';
-import checkbox from '@inquirer/checkbox';
 import AbstractToolInstallationScript from './base-script';
+import jsPackageManagerTools from '../config/js-package-manager.json';
 
 export default class JsPackageManager extends AbstractToolInstallationScript {
-    private static readonly packageManagers = [
-        {
-            name: 'yarn',
-            value: 'yarn',
-            checkCmd: 'yarn --version',
-            installCmd: 'brew install yarn',
-            description: '🔍 Yarn is a fast, reliable, and secure dependency manager for JavaScript and TypeScript.',
-        },
-        {
-            name: 'pnpm',
-            value: 'pnpm',
-            checkCmd: 'pnpm --version',
-            installCmd: 'brew install pnpm',
-            description: '🔍 Pnpm is a fast, disk space efficient package manager for JavaScript and TypeScript.',
-        },
-    ];
+    private static readonly tools = jsPackageManagerTools;
 
     public static async process(
         backgroundTasks: BackgroundTask[]
@@ -28,7 +12,7 @@ export default class JsPackageManager extends AbstractToolInstallationScript {
         Logger.info('🔍 Checking for JavaScript package managers...');
 
         const notInstalled = await this.findNotInstalledTools(
-            this.packageManagers
+            this.tools
         );
 
         if (notInstalled.length > 0) {

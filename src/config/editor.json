@@ -1,0 +1,44 @@
+[
+    {
+        "value": "code",
+        "name": "Visual Studio Code",
+        "description": "Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop.",
+        "checkCmd": "code -v",
+        "installCmd": "brew install --cask visual-studio-code"
+    },
+    {
+        "value": "cursor",
+        "name": "Cursor",
+        "description": "Cursor is an AI-first code editor that helps you code smarter and faster.",
+        "checkCmd": "cursor -v",
+        "installCmd": "brew install --cask cursor"
+    },
+    {
+        "value": "intellij-ce",
+        "name": "IntelliJ IDEA Community Edition",
+        "description": "IntelliJ IDEA Community Edition is a free and open-source IDE for Java development.",
+        "checkCmd": "defaults read \"/Applications/IntelliJ IDEA CE.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask intellij-idea-ce"
+    },
+    {
+        "value": "android-studio",
+        "name": "Android Studio",
+        "description": "Android Studio is the official integrated development environment for Google's Android operating system.",
+        "checkCmd": "defaults read \"/Applications/Android Studio.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask android-studio"
+    },
+    {
+        "value": "xcode",
+        "name": "Xcode",
+        "description": "Xcode is an integrated development environment for macOS containing a suite of software development tools developed by Apple.",
+        "checkCmd": "xcodebuild -version",
+        "installCmd": "brew install --cask xcode"
+    },
+    {
+        "value": "intellij-ultimate",
+        "name": "IntelliJ IDEA Ultimate Edition",
+        "description": "IntelliJ IDEA Ultimate Edition is a premium IDE for Java and other programming languages with advanced features and tools.",
+        "checkCmd": "defaults read \"/Applications/IntelliJ IDEA Ultimate.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask intellij-idea-ultimate"
+    }
+] 

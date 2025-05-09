@@ -1,36 +1,10 @@
-import { execAsync } from '../utils';
-import checkbox from '@inquirer/checkbox';
 import Logger from '../utils/logger';
-import { BackgroundTask } from '../types';
 import AbstractToolInstallationScript from './base-script';
+import browserTools from '../config/browser.json';
+import type { BackgroundTask } from '../types';
 
 export default class Browser extends AbstractToolInstallationScript {
-    private static readonly BROWSERS = [
-        {
-            name: 'Google Chrome',
-            value: 'chrome',
-            checkCmd: `defaults read "/Applications/Google Chrome.app/Contents/Info.plist" CFBundleShortVersionString`,
-            installCmd: 'brew install --cask google-chrome',
-        },
-        {
-            name: 'Firefox',
-            value: 'firefox',
-            checkCmd: `defaults read "/Applications/Firefox.app/Contents/Info.plist" CFBundleShortVersionString`,
-            installCmd: 'brew install --cask firefox',
-        },
-        {
-            name: 'Brave',
-            value: 'brave',
-            checkCmd: `defaults read "/Applications/Brave Browser.app/Contents/Info.plist" CFBundleShortVersionString`,
-            installCmd: 'brew install --cask brave-browser',
-        },
-        {
-            name: 'Microsoft Edge',
-            value: 'edge',
-            checkCmd: `defaults read "/Applications/Microsoft Edge.app/Contents/Info.plist" CFBundleShortVersionString`,
-            installCmd: 'brew install --cask microsoft-edge',
-        },
-    ];
+    private static readonly tools = browserTools;
 
     /** Main entry point */
     public static async process(
@@ -38,7 +12,7 @@ export default class Browser extends AbstractToolInstallationScript {
     ): Promise<void> {
         Logger.log('🔍 Checking installed browsers...');
 
-        const notInstalled = await this.findNotInstalledTools(this.BROWSERS);
+        const notInstalled = await this.findNotInstalledTools(this.tools);
 
         if (notInstalled.length === 0) {
             Logger.info('🎉 All browsers are already installed.');

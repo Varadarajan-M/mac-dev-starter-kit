@@ -1,51 +1,15 @@
 import Logger from '../utils/logger';
 import AbstractToolInstallationScript from './base-script';
+import terminalTools from '../config/terminal.json';
 import type { BackgroundTask } from '../types';
 
 export default class Terminal extends AbstractToolInstallationScript {
-    private static readonly TERMINALS = [
-        {
-            name: 'Alacritty',
-            value: 'alacritty',
-            installCmd: 'brew install --cask alacritty',
-            checkCmd: 'command -v alacritty',
-        },
-        {
-            name: 'iTerm2',
-            value: 'iterm2',
-            installCmd: 'brew install --cask iterm2',
-            checkCmd: 'ls /Applications/iTerm.app',
-        },
-        {
-            name: 'Hyper',
-            value: 'hyper',
-            installCmd: 'brew install --cask hyper',
-            checkCmd: 'command -v hyper',
-        },
-        {
-            name: 'Warp',
-            value: 'warp',
-            installCmd: 'brew install --cask warp',
-            checkCmd: 'ls /Applications/Warp.app',
-        },
-        {
-            name: 'WezTerm',
-            value: 'wezterm',
-            installCmd: 'brew install --cask wezterm',
-            checkCmd: 'command -v wezterm',
-        },
-        {
-            name: 'Kitty',
-            value: 'kitty',
-            installCmd: 'brew install --cask kitty',
-            checkCmd: 'command -v kitty',
-        },
-    ];
+    private static readonly tools = terminalTools;
 
     public static async process(
         backgroundTasks: BackgroundTask[]
     ): Promise<void> {
-        const notInstalled = await this.findNotInstalledTools(this.TERMINALS);
+        const notInstalled = await this.findNotInstalledTools(this.tools);
 
         if (notInstalled.length === 0) {
             Logger.info('🎉 All terminals are already installed.');

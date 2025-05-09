@@ -1,26 +1,28 @@
 import Logger from '../utils/logger';
+import { execAsync } from '../utils';
 import AbstractToolInstallationScript from './base-script';
-import aiTools from '../config/ai.json';
+import javaTools from '../config/java.json';
 
 import type { BackgroundTask } from '../types';
 
-export default class AITools extends AbstractToolInstallationScript {
-    private static readonly tools = aiTools;
+export default class Java extends AbstractToolInstallationScript {
+    private static readonly JAVA_VERSION = '17';
+    private static readonly tools = javaTools;
 
     public static async process(
         backgroundTasks: BackgroundTask[]
     ): Promise<void> {
-        Logger.log('🔍 Checking for existing AI tools...');
+        Logger.log('🔍 Checking for Java tools installation...');
 
         const notInstalled = await this.findNotInstalledTools(this.tools);
 
         if (notInstalled.length === 0) {
-            Logger.log('No AI tools to install');
+            Logger.log('🔍 No Java tools to install');
             return;
         }
 
-        const selectedAItools = await this.promptCheckbox(
-            'Select the AI tools you want to install',
+        const selectedJavaTools = await this.promptCheckbox(
+            'Select the Java tools you want to install',
             notInstalled
         );
 
@@ -28,11 +30,11 @@ export default class AITools extends AbstractToolInstallationScript {
             notInstalled.map((tool) => [tool.value, tool])
         );
 
-        for (const aiTool of selectedAItools) {
-            const tool = toolMap.get(aiTool);
+        for (const javaTool of selectedJavaTools) {
+            const tool = toolMap.get(javaTool);
 
             if (!tool) {
-                Logger.error(`Invalid AI tool selected: ${aiTool}`);
+                Logger.error(`Invalid Java tool selected: ${javaTool}`);
                 continue;
             }
 

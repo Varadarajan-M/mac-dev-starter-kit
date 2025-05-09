@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Google Chrome",
+        "value": "chrome",
+        "checkCmd": "defaults read \"/Applications/Google Chrome.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask google-chrome",
+        "description": "🌐 Google Chrome is a fast, secure, and free web browser built by Google. It's known for its speed, simplicity, and security features."
+    },
+    {
+        "name": "Firefox",
+        "value": "firefox",
+        "checkCmd": "defaults read \"/Applications/Firefox.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask firefox",
+        "description": "🦊 Firefox is a free and open-source web browser developed by Mozilla. It's known for its privacy features, customization options, and strong security."
+    },
+    {
+        "name": "Brave",
+        "value": "brave",
+        "checkCmd": "defaults read \"/Applications/Brave Browser.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask brave-browser",
+        "description": "🦁 Brave is a privacy-focused web browser that blocks ads and trackers by default. It's built on Chromium and offers faster browsing speeds."
+    },
+    {
+        "name": "Microsoft Edge",
+        "value": "edge",
+        "checkCmd": "defaults read \"/Applications/Microsoft Edge.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask microsoft-edge",
+        "description": "🌊 Microsoft Edge is a modern web browser built on Chromium. It offers excellent performance, security features, and seamless integration with Microsoft services."
+    }
+] 

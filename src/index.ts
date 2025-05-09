@@ -1,110 +1,32 @@
 import Logger from './utils/logger';
 import { isMacOs } from './utils';
+import {
+    AbstractToolInstallationScript,
+    Homebrew,
+    NodeRuntime,
+    Git,
+    Zshrc,
+    JsPackageManager,
+    Browser,
+    Terminal,
+    Communication,
+    Editor,
+    Design,
+    ApiClient,
+    DatabaseClient,
+    ProductivityTools,
+    AITools,
+    Java,
+} from './scripts';
+import setup from './config/setup.json';
 
-import Git from './scripts/git';
-import Zshrc from './scripts/zshrc';
-import Editor from './scripts/editor';
-import Design from './scripts/design';
-import Browser from './scripts/browser';
-import NodeRuntime from './scripts/node';
-import Homebrew from './scripts/homebrew';
-import Terminal from './scripts/terminal';
-import Communication from './scripts/communication';
-import JsPackageManager from './scripts/js-package-manager';
-import AbstractToolInstallationScript from './scripts/base-script';
-import ApiClient from './scripts/api';
 
 import type { BackgroundTask } from './types';
-import DatabaseClient from './scripts/database';
-import ProductivityTools from './scripts/productivity';
-import AITools from './scripts/ai';
 
 export default class Setup extends AbstractToolInstallationScript {
     private static backgroundTasks: BackgroundTask[] = [];
 
-    private static readonly SETUP_STEPS = [
-        {
-            name: '🍺 Check Homebrew',
-            value: 'homebrew',
-            description: '\n🔍 Verify if Homebrew is installed on your system.',
-        },
-        {
-            name: '🟢 Check Node.js',
-            value: 'node',
-            description: '\n🔍 Verify if Node.js and npm are installed.',
-        },
-        {
-            name: '🔐 Setup Git and Configure SSH Key',
-            value: 'git',
-            description:
-                '\n🛠️ Install Git, configure Git user, and generate an SSH key.',
-        },
-        {
-            name: '⚡ Terminal Productivity Shortcuts',
-            value: 'zshrc',
-            description:
-                '\n🚀 Add aliases, plugins, and shortcuts via an optimized .zshrc.',
-        },
-        {
-            name: '🌐 Install Browsers',
-            value: 'browsers',
-            description: '\n🌍 Install Chrome, Firefox, Brave, and more.',
-        },
-        {
-            name: '📝 Install Code Editors',
-            value: 'editors',
-            description:
-                '\n🧠 Choose from editors like VS Code, Cursor, IntelliJ, and more.',
-        },
-        {
-            name: '🖥️  Install AI Tools',
-            value: 'ai',
-            description:
-                '\n🧠 Choose from AI tools like ChatGPT, Claude, etc.',
-        },
-        {
-            name: '🖥️  Install Terminals',
-            value: 'terminals',
-            description:
-                '\n💻 Install terminal apps like Warp, Alacritty, iTerm2, etc.',
-        },
-        {
-            name: '💬 Install Communication Apps',
-            value: 'communication',
-            description:
-                '\n💬 Install communication apps like Slack, Discord, Microsoft Teams, and more.',
-        },
-        {
-            name: '📂 Install Productivity & Workspace Tools',
-            value: 'productivity',
-            description:
-                '\n📋 Install tools like Notion, Obsidian, Todoist, Loop, Raycast, and others that boost daily productivity.',
-        },
-        {
-            name: '🎨 Install Design Tools',
-            value: 'design',
-            description:
-                '\n🎨 Install design tools like Figma, Sketch, and more.',
-        },
-        {
-            name: '🛠️ Install Backend & API Tools',
-            value: 'api-clients',
-            description:
-                '\n🧪 Install tools like Postman, Insomnia, and HTTPie for API testing and backend workflows.',
-        },
-        {
-            name: '🗄️ Install Database Clients',
-            value: 'database-clients',
-            description:
-                '\n🗃️ Install database tools like DBeaver, pgAdmin, TablePlus, MongoDB Compass, and more.',
-        },
-        {
-            name: '🔍 Install JavaScript Package Managers',
-            value: 'js-package-manager',
-            description:
-                '\n🔍 Install JavaScript package managers like yarn and pnpm. (Optional) npm is already installed.',
-        },
-    ];
+    private static readonly SETUP_STEPS = setup;
 
     private static async runBackgroundTasks(): Promise<void> {
         Logger.log('🔍 Running the following tasks...');
@@ -187,6 +109,9 @@ export default class Setup extends AbstractToolInstallationScript {
                 case 'ai':
                     await AITools.process(this.backgroundTasks);
                     break;
+                case 'java':
+                    await Java.process(this.backgroundTasks);
+                    break;
                 default:
                     Logger.warn(`No action for step: ${step}`);
                     break;
@@ -215,6 +140,6 @@ export default class Setup extends AbstractToolInstallationScript {
 }
 
 Setup.process().catch((err) => {
-    Logger.error('Unhandled error during setup:', err);
+    Logger.error('Something went wrong during setup:', err?.message);
     process.exit(0);
 });

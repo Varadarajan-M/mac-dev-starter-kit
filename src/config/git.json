@@ -1,0 +1,9 @@
+[
+    {
+        "name": "Git",
+        "value": "git",
+        "checkCmd": "git --version",
+        "installCmd": "brew install git",
+        "description": "Git is a distributed version control system. It is a tool that allows you to track changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development."
+    }
+]

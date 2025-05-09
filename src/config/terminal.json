@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Alacritty",
+        "value": "alacritty",
+        "installCmd": "brew install --cask alacritty",
+        "checkCmd": "command -v alacritty",
+        "description": "A fast, cross-platform, OpenGL terminal emulator"
+    },
+    {
+        "name": "iTerm2",
+        "value": "iterm2",
+        "installCmd": "brew install --cask iterm2",
+        "checkCmd": "ls /Applications/iTerm.app",
+        "description": "A highly customizable terminal emulator for macOS"
+    },
+    {
+        "name": "Hyper",
+        "value": "hyper",
+        "installCmd": "brew install --cask hyper",
+        "checkCmd": "command -v hyper",
+        "description": "A terminal built on web technologies with a focus on extensibility"
+    },
+    {
+        "name": "Warp",
+        "value": "warp",
+        "installCmd": "brew install --cask warp",
+        "checkCmd": "ls /Applications/Warp.app",
+        "description": "A modern, Rust-based terminal with AI-powered features"
+    },
+    {
+        "name": "WezTerm",
+        "value": "wezterm",
+        "installCmd": "brew install --cask wezterm",
+        "checkCmd": "command -v wezterm",
+        "description": "A GPU-accelerated cross-platform terminal emulator and multiplexer"
+    },
+    {
+        "name": "Kitty",
+        "value": "kitty",
+        "installCmd": "brew install --cask kitty",
+        "checkCmd": "command -v kitty",
+        "description": "A fast, feature-rich, GPU-based terminal emulator"
+    }
+] 

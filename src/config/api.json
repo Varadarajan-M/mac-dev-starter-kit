@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Postman",
+        "description": "Postman is an API client that allows you to test and develop APIs.",
+        "value": "postman",
+        "installCmd": "brew install --cask postman",
+        "checkCmd": "defaults read \"/Applications/Postman.app/Contents/Info.plist\" CFBundleShortVersionString"
+    },
+    {
+        "name": "Insomnia",
+        "description": "Insomnia is an API client that allows you to test and develop APIs.",
+        "value": "insomnia",
+        "installCmd": "brew install --cask insomnia",
+        "checkCmd": "defaults read \"/Applications/Insomnia.app/Contents/Info.plist\" CFBundleShortVersionString"
+    },
+    {
+        "name": "HTTPie",
+        "description": "HTTPie is a command-line HTTP client.",
+        "value": "httpie",
+        "installCmd": "brew install --cask httpie",
+        "checkCmd": "defaults read \"/Applications/HTTPie.app/Contents/Info.plist\" CFBundleShortVersionString"
+    }
+]

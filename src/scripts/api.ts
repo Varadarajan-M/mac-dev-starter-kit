@@ -1,40 +1,17 @@
 import Logger from '../utils/logger';
 import AbstractToolInstallationScript from './base-script';
-import type { BackgroundTask, InstallableItem } from '../types';
+import apiTools from '../config/api.json';
 
+import type { BackgroundTask } from '../types';
 export default class ApiClient extends AbstractToolInstallationScript {
-    private static readonly API_TOOLS: InstallableItem[] = [
-        {
-            name: 'Postman',
-            description:
-                'Postman is an API client that allows you to test and develop APIs.',
-            value: 'postman',
-            installCmd: 'brew install --cask postman',
-            checkCmd: `defaults read "/Applications/Postman.app/Contents/Info.plist" CFBundleShortVersionString`,
-        },
-        {
-            name: 'Insomnia',
-            description:
-                'Insomnia is an API client that allows you to test and develop APIs.',
-            value: 'insomnia',
-            installCmd: 'brew install --cask insomnia',
-            checkCmd: `defaults read "/Applications/Insomnia.app/Contents/Info.plist" CFBundleShortVersionString`,
-        },
-        {
-            name: 'HTTPie',
-            description: 'HTTPie is a command-line HTTP client.',
-            value: 'httpie',
-            installCmd: 'brew install --cask httpie',
-            checkCmd: `defaults read "/Applications/HTTPie.app/Contents/Info.plist" CFBundleShortVersionString`,
-        },
-    ];
+    private static readonly tools = apiTools;
 
     public static async process(
         backgroundTasks: BackgroundTask[]
     ): Promise<void> {
         Logger.log('🔍 Checking for existing API tools...');
 
-        const notInstalled = await this.findNotInstalledTools(this.API_TOOLS);
+        const notInstalled = await this.findNotInstalledTools(this.tools);
         if (notInstalled.length === 0) {
             Logger.log('No API tools to install');
             return;

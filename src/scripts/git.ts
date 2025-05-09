@@ -1,18 +1,11 @@
 import Logger from '../utils/logger';
 import input from '@inquirer/input';
-import { InstallableItem } from '../types';
 import AbstractToolInstallationScript from './base-script';
+import gitTools from '../config/git.json';
 
 export default class Git extends AbstractToolInstallationScript {
 
-    private static readonly tools: InstallableItem[] = [
-        {
-            name: 'Git',
-            value: 'git',
-            checkCmd: 'git --version',
-            installCmd: 'brew install git',
-        },
-    ];
+    private static readonly tools = gitTools;
 
     /** Configures Git username and email */
     private static async configureGit(): Promise<string> {

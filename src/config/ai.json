@@ -1,0 +1,16 @@
+[
+    {
+        "name": "ChatGPT",
+        "value": "chatgpt",
+        "checkCmd": "defaults read \"/Applications/ChatGPT.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask chatgpt",
+        "description": "🤖 OpenAI's official ChatGPT desktop application. A powerful AI assistant that can help with writing, coding, analysis, and more."
+    },
+    {
+        "name": "Claude",
+        "value": "claude",
+        "checkCmd": "defaults read \"/Applications/Claude.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask claude",
+        "description": "🧠 Anthropic's AI assistant. A sophisticated AI that excels at thoughtful, nuanced conversations and complex tasks. While there isn't an official brew cask for the Claude desktop app, you can install it by downloading the .dmg from their website."
+    }
+] 

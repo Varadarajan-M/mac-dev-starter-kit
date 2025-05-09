@@ -1,0 +1,30 @@
+[
+    {
+        "value": "java",
+        "name": "Java",
+        "description": "Java is a popular, versatile programming language known for its 'write once, run anywhere' capability.",
+        "checkCmd": "java -version",
+        "installCmd": "brew install openjdk@17"
+    },
+    {
+        "value": "maven",
+        "name": "Maven",
+        "description": "Apache Maven is a software project management and comprehension tool, primarily used for Java projects.",
+        "checkCmd": "mvn -version",
+        "installCmd": "brew install maven"
+    },
+    {
+        "value": "gradle",
+        "name": "Gradle",
+        "description": "Gradle is an open-source build automation tool that is designed to be flexible enough to build almost any type of software.",
+        "checkCmd": "gradle -version",
+        "installCmd": "brew install gradle"
+    },
+    {
+        "value": "intellij-ce",
+        "name": "IntelliJ IDEA Community Edition",
+        "description": "IntelliJ IDEA Community Edition is a free and open-source IDE for Java development, offering advanced code assistance and a wealth of coding features.",
+        "checkCmd": "defaults read \"/Applications/IntelliJ IDEA CE.app/Contents/Info.plist\" CFBundleShortVersionString",
+        "installCmd": "brew install --cask intellij-idea-ce"
+    }
+] 
