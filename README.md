@@ -15,6 +15,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Varadarajan-M/mac-dev-st
 
 This will:
 
+* Prompt to install XCode Command Line Tools - If you face an issue with the installation, Please check the `Prerequisites` section to install it manually.
+* Install Homebrew (Requires Password) - If you face an issue with the installation, Please check the `Prerequisites` section to install it manually.
 * Install NVM and the latest **LTS** version of Node.js
 * Clone the `mac-dev-starter-kit` project
 * Install dependencies
