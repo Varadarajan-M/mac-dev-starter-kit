@@ -2,6 +2,9 @@
 
 set -e
 
+echo "🛠️ Mac Dev Starter Kit"
+echo "======================="
+
 # Check and install Xcode Command Line Tools if needed  
 echo "🔍 Checking for Xcode Command Line Tools..."  
 if ! xcode-select -p &>/dev/null; then  
@@ -40,8 +43,7 @@ REPO_URL="https://github.com/Varadarajan-M/mac-dev-starter-kit.git"
 CLONE_DIR="$HOME/mac-dev-starter-kit"
 
 
-echo "🛠️ Mac Dev Starter Kit"
-echo "======================="
+
 # Step 1: Install NVM if missing
 echo "🔍 Checking for NVM..."
 echo
