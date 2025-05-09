@@ -1,8 +1,8 @@
 # 🛠️ Mac Dev Starter Kit
-
-A modern CLI tool to automate and bootstrap your macOS development environment in minutes.
-
+A modern CLI tool to automate and bootstrap your macOS development environment in minutes. 
 > Installs Git, Node (via NVM), code editors, terminal apps, browser tools, and more — all with one command.
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Varadarajan-M/mac-dev-starter-kit)
 
 
 ## ⚡ Quickstart
